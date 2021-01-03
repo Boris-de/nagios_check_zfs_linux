@@ -350,7 +350,7 @@ if compressName=='':
     stateNum = RaiseStateNum(3, stateNum)
     logging.warning("%s: Missing required field in zpool output: NAME", nagiosStatus[stateNum])
     exit(stateNum)
-if compressValue=='on':
+if compressValue and compressValue!='off':
     getCompressRatioCommand = GetArgsForZfsCommand([zfsCommand, 'get', 'compressratio', args.pool])
 
     try:
